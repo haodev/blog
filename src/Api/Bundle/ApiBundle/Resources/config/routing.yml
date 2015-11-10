@@ -1,4 +1,4 @@
 api_rest:
     type: rest
     path:     /articles
-    resource: Api\Bundle\ApiBundle\Controller\ApiController
+    resource: Api\Bundle\ApiBundle\Controller\ArticleController
