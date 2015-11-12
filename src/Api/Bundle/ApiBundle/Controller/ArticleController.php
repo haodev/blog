@@ -2,7 +2,6 @@
 
 namespace Api\Bundle\ApiBundle\Controller;
 
-use FOS\RestBundle\FOSRestBundle;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
@@ -70,8 +69,17 @@ class ArticleController extends FOSRestController
      *
      * @return void
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+        $article = $dm->getRepository('ApiBundle:Article')->findById($id);
+
+        if (empty($article)) {
+            throw new NotFoundHttpException();
+        }
+
+        $dm->remove($article[0]);
+        $dm->flush();
 
     }
 }

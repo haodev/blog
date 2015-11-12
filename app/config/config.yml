@@ -61,7 +61,7 @@ swiftmailer:
 doctrine_mongodb:
     connections:
       default:
-        server: localhost
+        server: "%mongodb_host%"
         options: {}
     default_database: blog
     document_managers:
@@ -87,3 +87,10 @@ fos_rest:
         json: true
     exception:
       enabled: true
+      messages:
+        Symfony\Component\HttpKernel\Exception\HttpException: true
+
+stof_doctrine_extensions:
+    mongodb:
+        default:
+            sluggable: true

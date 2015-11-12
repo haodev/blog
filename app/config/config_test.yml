@@ -14,3 +14,15 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_host%"
+            options:
+                readPreference: primaryPreferred
+                connectTimeoutMS: 10000
+    default_database: blog_test
+    document_managers:
+        default:
+            auto_mapping: true

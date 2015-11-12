@@ -15,12 +15,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Article class
  *
- * @ODM\Document(collection="blog")
+ * @ODM\Document(collection="articles")
  */
 class Article
 {
     /**
-     * @var string
+     * @var integer
      *
      * @ODM\Id(strategy="INCREMENT")
      */
